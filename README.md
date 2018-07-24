@@ -102,7 +102,8 @@
     cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/
 
 2. 配置 .vimrc
-    2.1 加载YCM插件
+    
+  2.1 加载YCM插件
 
     call vundle#begin()
 
@@ -112,7 +113,7 @@
 
     call vundle#end()
 
-    2.2 YCM配置
+  2.2 YCM配置
 
     －－－－－－－－－－－－－－－－－ YCM CONFIG BEGIN －－－－－－－－－－－－－－－－－
 
@@ -197,6 +198,7 @@
 4. 配置 ycm_extra_conf.py
 
     将 系统和项目的头文件地址加到 flags 中
+    
   4.1 添加是系统 include 路径
 
     用命令查看库路径
