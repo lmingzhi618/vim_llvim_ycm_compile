@@ -102,7 +102,8 @@
     cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/
 
 2. 配置 .vimrc
-2.1 加载YCM插件
+
+  2.1 加载YCM插件
 
     call vundle#begin()
 
@@ -112,7 +113,7 @@
 
     call vundle#end()
 
-2.2 YCM配置
+  2.2 YCM配置
 
     －－－－－－－－－－－－－－－－－ YCM CONFIG BEGIN －－－－－－－－－－－－－－－－－
 
