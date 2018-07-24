@@ -24,7 +24,7 @@
 
     wget -c http://releases.llvm.org/4.0.1/libunwind-4.0.1.src.tar.xz
 
-2. 解压所有文件,并按以下操作移动目录到指定位置
+## 2. 解压所有文件,并按以下操作移动目录到指定位置
 
     2.1 mv llvm-4.0.1.src llvm
 
@@ -40,29 +40,31 @@
 
     2.7 mv libunwind-4.0.1.src llvm/projects/libunwind
 
-3. 创建cmake的编译目录：build
-4. 进入build目录，开始编译生成Makefile文件
+## 3. 创建cmake的编译目录：build
+
+## 4. 进入build目录，开始编译生成Makefile文件
 
     cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCLANG_DEFAULT_CXX_STDLIB=libc++ -DCMAKE_BUILD_TYPE="Release" ../llvm
 
-5. 开始编译
+## 5. 开始编译
 
     make -j4
 
-6. 编译完成，安装llvm
+## 6. 编译完成，安装llvm
 
     make install
 
-7. 安装 libcxx 和 libcxxabi
+## 7. 安装 libcxx 和 libcxxabi
 
     使用命令 make install-cxx install-cxxabi 安装 clang/clang++ 所需要的 libc++ 库
 
-二. 编译vim81
-1. 下载并解压vim81源码
+# 二. 编译vim81
+
+## 1. 下载并解压vim81源码
 
     wget -c ftp://ftp.vim.org/pub/vim/unix/vim-8.1.tar.bz2 tar jxf vim-8.1.tar.bz2
 
-2. 编译安装
+## 2. 编译安装
 
     cd vim-8.1
 
@@ -72,39 +74,41 @@
 
     make install
 
-三. 编译ycm_core
-1. 下载最新的 YouCompleteMe
+# 三. 编译ycm_core
+
+## 1. 下载最新的 YouCompleteMe
 
     git clone --recursive https://github.com/Valloric/YouCompleteMe.git
 
-2. 检查完整性
+## 2. 检查完整性
 
     git submodule update --init --recursive
 
-3. 安装python开发环境
+## 3. 安装python开发环境
 
     yum install python-devel
 
-4. 拷贝YouCompleteMe到～/.vim/bundle 目录
-5. 在 YouCompleteMe 目录下新建 ycm_build，并进入目录执行下面命令生成 Makefile 文件
+## 4. 拷贝YouCompleteMe到～/.vim/bundle 目录
+
+## 5. 在 YouCompleteMe 目录下新建 ycm_build，并进入目录执行下面命令生成 Makefile 文件
 
     cmake -G "Unix Makefiles" -DUSE_CLANG_COMPLETER=ON -DPATH_TO_LLVM_ROOT=/opt/llvm-4.0.1/ -DEXTERNAL_LIBCLANG_PATH=/opt/llvm-4.0.1/lib/libclang.so ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/
 
-6. 编译以生成 ycm_core 文件
+## 6. 编译以生成 ycm_core 文件
 
     make ycm_core
 
 至此，YouCompleteMe 安装成功
 
-四. 详细配置
+# 四. 详细配置
 
-1. 配置 ycm_extra_conf.py
+## 1. 配置 ycm_extra_conf.py
 
     cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/
 
-2. 配置 .vimrc
+## 2. 配置 .vimrc
     
-  2.1 加载YCM插件
+  ### 2.1 加载YCM插件
 
     call vundle#begin()
 
@@ -114,7 +118,7 @@
 
     call vundle#end()
 
-  2.2 YCM配置
+  ### 2.2 YCM配置
 
     －－－－－－－－－－－－－－－－－ YCM CONFIG BEGIN －－－－－－－－－－－－－－－－－
 
@@ -176,31 +180,31 @@
 
     －－－－－－－－－－－－－－－－－ YCM CONFIG END  －－－－－－－－－－－－－－－－－
 
-3. 自动补全C++
+## 3. 自动补全C++
 
       cd /usr/include/c++/4.8.5
 
       ctags -R --c++-kinds=+l+x+p --fields=+iaSl --extra=+q --language-force=c++ -f stdcpp.tags
 
-  在 vim 中引入该标签文件。在 .vimrc 中增加如下内容：
+      在 vim 中引入该标签文件。在 .vimrc 中增加如下内容：
 
         set tags+=/usr/include/c++/4.8/stdcpp.tags
 
         let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"] 
 
-让 OmniCppComplete 成功识别标签文件中的标准库接口。C++ 标准库源码文件中使用了 _GLIBCXX_STD 名字空间，
+      让 OmniCppComplete 成功识别标签文件中的标准库接口。C++ 标准库源码文件中使用了 _GLIBCXX_STD 名字空间，
 
-（GNU C++ 标准库的实现是这样，如果你使用其他版本的标准库，需要自行查找对应的名字空间名称），
+     （GNU C++ 标准库的实现是这样，如果你使用其他版本的标准库，需要自行查找对应的名字空间名称），
 
-标签文件里面的各个标签都嵌套在该名字空间下，要让 OmniCppComplete 正确识别这些标签，
+      标签文件里面的各个标签都嵌套在该名字空间下，要让 OmniCppComplete 正确识别这些标签，
 
-必须显式告知 OmniCppComplete 相应的名字空间名称。
+      必须显式告知 OmniCppComplete 相应的名字空间名称。
 
-4. 配置 ycm_extra_conf.py
+## 4. 配置 ycm_extra_conf.py
 
     将 系统和项目的头文件地址加到 flags 中
     
-  4.1 添加是系统 include 路径
+  ### 4.1 添加是系统 include 路径
 
     用命令查看库路径
 
@@ -238,13 +242,13 @@
 
     '/usr/include',
 
-  4.2 添加项目头文件路径到 flags 中
+  ### 4.2 添加项目头文件路径到 flags 中
 
     '-I',
 
     '/home/user/projects/include', # 此处填写项目头文件路径
 
-5. 验证YCM
+## 5. 验证YCM
 
     用 vim81 打开一个cpp源码文件，输入命令  :YcmDiags,查看 ycmd 正常运行
 
