@@ -1,4 +1,4 @@
-＃编译环境及源码版本
+# 编译环境及源码版本
 
     cmake－3.12.0
 
@@ -6,8 +6,9 @@
 
     vim-81
 
-＃一. llvm-clang 编译安装
-＃＃1. 从clang官网上下载包含llvm、clang和libcxx等7个文件：
+# 一. llvm-clang 编译安装
+
+## 1. 从clang官网上下载包含llvm、clang和libcxx等7个文件：
 
     wget -c http://releases.llvm.org/4.0.1/llvm-4.0.1.src.tar.xz
 
