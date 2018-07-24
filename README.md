@@ -94,7 +94,9 @@
     make ycm_core
 
 至此，YouCompleteMe 安装成功
+
 四. 详细配置
+
 1. 配置 ycm_extra_conf.py
 
     cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/
@@ -191,6 +193,7 @@
 标签文件里面的各个标签都嵌套在该名字空间下，要让 OmniCppComplete 正确识别这些标签，
 
 必须显式告知 OmniCppComplete 相应的名字空间名称。
+
 4. 配置 ycm_extra_conf.py
 
     将 系统和项目的头文件地址加到 flags 中
