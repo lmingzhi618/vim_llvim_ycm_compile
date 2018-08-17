@@ -26,19 +26,19 @@
 
 ## 2. 解压所有文件,并按以下操作移动目录到指定位置
 
-    2.1 mv llvm-4.0.1.src llvm
+     mv llvm-4.0.1.src llvm
 
-    2.2 mv cfe-4.0.1.src llvm/tools/clang
+     mv cfe-4.0.1.src llvm/tools/clang
 
-    2.3 mv clang-tools-extra-4.0.1.src llvm/tools/clang/tools/extra
+     mv clang-tools-extra-4.0.1.src llvm/tools/clang/tools/extra
 
-    2.4 mv compiler-rt-4.0.1.src llvm/projects/compiler-rt
+     mv compiler-rt-4.0.1.src llvm/projects/compiler-rt
 
-    2.5 mv libcxx-4.0.1.src llvm/projects/libcxx
+     mv libcxx-4.0.1.src llvm/projects/libcxx
 
-    2.6 mv libcxxabi-4.0.1.src llvm/projects/libcxxabi
+     mv libcxxabi-4.0.1.src llvm/projects/libcxxabi
 
-    2.7 mv libunwind-4.0.1.src llvm/projects/libunwind
+     mv libunwind-4.0.1.src llvm/projects/libunwind
 
 ## 3. 创建cmake的编译目录：build
 
