@@ -126,7 +126,7 @@
 
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
 
-    inoremappumvisible() ? "\" : "\" "回车即选中当前项
+    inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"    "回车即选中当前项  
 
     let g:ycm_show_diagnostics_ui = 0 "关闭语法提示
 
