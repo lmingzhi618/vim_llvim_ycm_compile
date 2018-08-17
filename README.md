@@ -250,7 +250,7 @@
 
 ## 5. 验证YCM
 
-    用 vim81 打开一个cpp源码文件，输入命令  :YcmDiags,查看 ycmd 正常运行
+    用 vim81 打开一个cpp源码文件，输入命令  :YcmDebugInfo,查看 ycmd 正常运行
 
     将光标移动到一个函数名上，按F3或输入命令 :YcmCompleter GoToDefinitionElseDeclaration，跳到 声明或定义处
 
