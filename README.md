@@ -97,7 +97,10 @@
 ## 6. 编译以生成 ycm_core 文件
 
     make ycm_core
-
+    
+    编译支持 clang golang 自动补全
+    cd ~/.vim/bundle/YouCompleteMe$
+    ./install.py --clang-completer --go-completer
 至此，YouCompleteMe 安装成功
 
 # 四. 详细配置
