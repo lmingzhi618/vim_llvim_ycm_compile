@@ -245,15 +245,39 @@
 
     '/usr/include',
 
-  ### 4.2 添加项目头文件路径到 flags 中
+  ### 4.2 添加项目公共头文件路径到 flags 中
 
     '-I',
 
     '/home/user/projects/include', # 此处填写项目头文件路径
-
+  ### 4.3 添加项目路径到 flags 中
+    cwd = os.getcwd()
+    list_dir = os.walk(cwd)
+    for root, dirs, _ in list_dir:
+        for d in dirs:
+            flags.extend(["-I", os.path.join(root, d)])
+  ### 4.4 复制.ycm_extra_conf.py 到项目根目录
 ## 5. 验证YCM
 
-    用 vim81 打开一个cpp源码文件，输入命令  :YcmDebugInfo,查看 ycmd 正常运行
+    用 vim81 打开一个cpp源码文件，输入命令  :YcmDebugInfo,查看 ycmd 正常运行，且能看到flags变量内容：
+    Printing YouCompleteMe debug information...
+    -- Client logfile: /tmp/ycm_8kggs4qn.log
+    -- Server Python interpreter: /usr/bin/python3
+    -- Server Python version: 3.7.3
+    -- Server has Clang support compiled in: True
+    -- Clang version: clang version 8.0.0 (tags/RELEASE_800/final)
+    -- Extra configuration file found and loaded
+    -- Extra configuration path: /home/lmz/workspace/cpp/heap_sort/.ycm_extra_conf.py
+    -- C-family completer debug information:
+    --   Compilation database path: None
+    --   Flags: ['-Wall', '-Wextra', '-Werror', '-fexceptions', '-DNDEBUG', '-std=c++11', '-x', 'c++', '-isyst
+    em', '/usr/include', '-isystem', '/usr/local/include', '-isystem']
+    --   Translation unit: /home/lmz/workspace/cpp/heap_sort/main.cc
+    -- Server running at: http://127.0.0.1:46455
+    -- Server process ID: 6016
+    -- Server logfiles:
+    --   /tmp/ycmd_46455_stdout_zntrr92q.log
+    --   /tmp/ycmd_46455_stderr_r04aq7x2.log
 
     将光标移动到一个函数名上，按F3或输入命令 :YcmCompleter GoToDefinitionElseDeclaration，跳到 声明或定义处
 
